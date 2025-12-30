@@ -43,8 +43,12 @@ jobs:
         run: |
           az login --service-principal -u "$ARM_CLIENT_ID" -p "$ARM_CLIENT_SECRET" --tenant "$ARM_TENANT_ID"
           az account set -s "$ARM_SUBSCRIPTION_ID"
-          
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        
       - name: Terraform Init
         run: terraform init -input=false -no-color
+        
       - name: Terraform Apply
         run: terraform apply -input=false -auto-approve -no-color
