@@ -20,3 +20,7 @@ resource "azurerm_resource_group" "action" {
   name     = "action"
   location = "West Europe"
 }
+resource "azurerm_resource_group" "action2" {
+  name     = "action2"
+  location = "West Europe"
+}
